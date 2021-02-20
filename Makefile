@@ -1,2 +1,3 @@
-hello: main.c
-	gcc -o hello main.c
+all : main.c 
+	gcc - g - Wall - Werror - o main main.c 
+clean : $(RM) main
