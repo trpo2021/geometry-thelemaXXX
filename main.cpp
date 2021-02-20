@@ -4,14 +4,11 @@ using namespace std;
 int main()
 {
     char input[80];
-    for(int i=0;i<80;i++){
-    	input[i]=' ';
+    for (int i = 0; i < 80; i++) {
+        input[i] = ' ';
     }
     string inp;
     cin.getline(input, 80);
-    for(int i=0;i<80;i++){
-    	cout<<inp[i];
-    }
     inp.assign(input);
     int left_par = inp.find('(');
     int right_par = inp.find(')', left_par);
@@ -29,15 +26,15 @@ int main()
         cout << "Error: circle expected" << endl;
         IsDataTrue = false;
     }
-    int zap = inp.find(',', left_par);
-    if (zap == -1) {
+    int comma = inp.find(',', left_par);
+    if (comma == -1) {
         cout << "Error: wrong data" << endl;
         IsDataTrue = false;
     }
     bool IsNumber = false;
     int lcount = 0; // must be 2
     int rcount = 0; // must be 1
-    for (int i = left_par + 1; i <= zap; i++) {
+    for (int i = left_par + 1; i <= comma; i++) {
         if ((inp[i] == ' ' || inp[i] == ',') && IsNumber) {
             lcount++;
             IsNumber = false;
@@ -53,7 +50,7 @@ int main()
         }
     }
     IsNumber = false;
-    for (int i = zap + 1; i <= right_par; i++) {
+    for (int i = comma + 1; i <= right_par; i++) {
         if ((inp[i] == ' ' || inp[i] == ')') && IsNumber) {
             rcount++;
             IsNumber = false;
@@ -72,7 +69,13 @@ int main()
         cout << "Error: wrong amount of data" << endl;
         IsDataTrue = false;
     }
-    
+    for (int i = right_par + 2; i < 80; i++) {
+        if (input[i] != ' ') {
+            cout << "Error: unexpected token" << endl;
+            IsDataTrue = false;
+            break;
+        }
+    }
     if (IsDataTrue) {
         cout << inp;
     }
