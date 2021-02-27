@@ -1,3 +1,7 @@
-*.exe
 *.o
-/main
+*.swp
+*~
+*# 
+main
+*.out
+*.exe

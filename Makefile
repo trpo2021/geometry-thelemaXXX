@@ -1,3 +1,2 @@
-all : main.cpp 
-	g++ -g -Wall -Werror -o main main.cpp 
-clean : $(RM) main
+main.exe:
+	g++ -Wall -Werror -o main.exe main.cpp
