@@ -53,7 +53,7 @@ int main()
             rcount++;
             IsNumber = false;
         }
-        if ((cir[i] >= '0' && cir[i] <= '9') || cir[i] == ')')
+        if ((cir[i] >= '0' && cir[i] <= '9' || cir[i] == '.') || cir[i] == ')')
             IsNumber = true;
         else if (cir[i] == ' ')
             continue;
