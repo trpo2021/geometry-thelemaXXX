@@ -15,65 +15,80 @@ int main()
     int first_space = txt.find(' ');
     bool Condition_is_met = true;
     if (left_bracket == -1 || right_bracket == -1) {
-        cout << "Error at column 0: parenthesis expected" << endl;
+        cout << "Error at column 0: parenthesis not entered" << endl;
         Condition_is_met = false;
     }
     int CircleTrue = txt.compare(0, first_space, "circle") * txt.compare(0, left_bracket, "circle")
                      * txt.compare(0, first_space, "CIRCLE")
                      * txt.compare(0, left_bracket, "CIRCLE");
-    if (CircleTrue != 0) {
-        cout << "Error at column 1: circle expected or first space before circle" << endl;
+    int c = txt.find('c');
+    int e = txt.find('e');
+    while(1) {
+    if (c - 1 == first_space) {
+        cout << "Error at column 1: space before circle" << endl;
         Condition_is_met = false;
+        break;
     }
-    int circle = txt.find('e');
-    if (circle + 1 == first_space) {
+    else if (e + 1 == first_space) {
         cout << "Error at column 2: space after circle" << endl;
         Condition_is_met = false;
+        break;
     }
+    else if (CircleTrue != 0) {
+        cout << "Error at column 3: circle not entered" << endl;
+        Condition_is_met = false;
+        break;
+    }
+    else break;
+	}
     int comma = txt.find(',');
     if (comma == -1) {
-        cout << "Error at column 3: wrong data" << endl;
+        cout << "Error at column 4: wrong data" << endl;
         Condition_is_met = false;
     }
-    int left_part = 0;
-    int right_part = 0;
     for (int i = left_bracket + 1; i <= comma; i++) {
-        if (txt[i] == ' ' || txt[i] == ',') {
-            left_part++;
-        }
-        if ((txt[i] >= '0' && txt[i] <= '9') || txt[i] == '-' || txt[i] == ',')
-            left_part += 0;
-        else if (txt[i] == ' ')
+        if ((txt[i] >= '0' && txt[i] <= '9') || txt[i] == '-' || txt[i] == ' ')
             continue;
+        else if (txt[i] == '.') {
+        	cout << "Error at column 5: coordinates must be integers" << endl;
+        	Condition_is_met = false;
+        	break;
+        }
         else {
-            cout << "Error at column 4: wrong symbols" << endl;
+            cout << "Error at column 6: incorrect symbols before comma" << endl;
             Condition_is_met = false;
             break;
         }
     }
     if (Condition_is_met != false) {
         for (int i = comma + 1; i <= right_bracket; i++) {
-            if (txt[i] == ' ' || txt[i] == ')') {
-                right_part++;
-            }
-            if ((txt[i] >= '0' && txt[i] <= '9') || txt[i] == '.' || txt[i] == ')')
-                right_part += 0;
-            else if (txt[i] == ' ')
+            if ((txt[i] >= '0' && txt[i] <= '9') || txt[i] == '.'|| txt[i] == '-' || txt[i] == ',' || txt[i] == ' ' || txt[i] == ')')
                 continue;
+            else if (txt[i] == '-') {
+            	cout << "Error at column 7: radius cannot be negative" << endl;
+        		Condition_is_met = false;
+        		break;
+			}
             else {
-                cout << "Error at column 4: wrong symbols" << endl;
+                cout << "Error at column 8: incorrect symbols after comma" << endl;
                 Condition_is_met = false;
                 break;
             }
         }
     }
-    if ((left_part == 1 || left_part == 0) || right_part == 0) {
-        cout << "Error at column 5: wrong amount of data" << endl;
+	int j = 0;
+	for(int k = left_bracket; k <= right_bracket + 10; k++ ) {
+	 if (txt[k] == ',' || txt[k] == ')' || txt[k] == '(') j++;
+	 	if ((txt[k] >= '0' && txt[k] <= '9') || txt[k] == '-' || txt[k] == ',' || txt[k] == ' ') continue;
+    	else if (j > 3) {
+        cout << "Error at column 9: wrong amount of data" << endl;
         Condition_is_met = false;
+        break;
+    }
     }
     for (int i = right_bracket + 2; i < 80; i++) {
         if (text[i] != ' ') {
-            cout << "Error at column 6: unexpected token" << endl;
+            cout << "Error at column 10: extra characters" << endl;
             Condition_is_met = false;
             break;
         }
