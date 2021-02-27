@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
 int main()
 {
     char circle[80];
@@ -79,3 +80,4 @@ int main()
     }
     return 0;
 }
+
