@@ -1,6 +1,5 @@
-#include "computation.h"
 #include "check.h"
-
+#include "computation.h"
 int main()
 {
 	int left_bracket, right_bracket, first_space, comma, CircleTrue, Condition_is_met = 1;
