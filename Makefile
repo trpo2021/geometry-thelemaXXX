@@ -1,23 +1,44 @@
-CXX=g++
-CFLAGS= -c -Wall -Werror
-LIBG = obj/src/libgeometry
-GEO = obj/src/geometry
+APP_NAME = geomerty
+LIB_NAME = libgeometry
 
-bin/main.exe: $(GEO)/main.o $(LIBG)/check.o $(LIBG)/computation.o 
-	$(CXX) -I src -Wall -Werror -o bin/main.exe $(GEO)/main.o $(LIBG)/check.o $(LIBG)/computation.o
+CC= g++
+CFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -I src -MP -MMD
+LDFLAGS =
+LDLIBS =
 
-$(LIBG)/check.o: src/libgeometry/check.cpp
-	$(CXX) -I src $(CFLAGS) -MMD -o $(LIBG)/check.o src/libgeometry/check.cpp
+BIN_DIR = bin
+OBJ_DIR = obj
+SRC_DIR = src
 
-$(LIBG)/computation.o: src/libgeometry/computation.cpp
-	$(CXX) -I src $(CFLAGS) -MMD -o $(LIBG)/computation.o src/libgeometry/computation.cpp
+APP_PATH = $(BIN_DIR)/$(APP_NAME)
+LIB_PATH = $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/$(LIB_NAME).a
 
-$(GEO)/main.o: src/geometry/main.cpp
-	$(CXX) -I src $(CFLAGS) -MMD -o $(GEO)/main.o src/geometry/main.cpp
+SRC_EXT = cpp
 
--include main.d computation.d check.d
+APP_SOURCES = $(shell find $(SRC_DIR)/$(APP_NAME) -name '*.$(SRC_EXT)')
+APP_OBJECTS = $(APP_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+
+LIB_SOURCES = $(shell find $(SRC_DIR)/$(LIB_NAME) -name '*.$(SRC_EXT)')
+LIB_OBJECTS = $(LIB_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
+
+.PHONY: all
+all: $(APP_PATH)
+
+-include $(DEPS)
+
+$(APP_PATH): $(APP_OBJECTS) $(LIB_PATH)
+	$(CXX) $(CFLAGS) $(CPPFLAGS) $^ -o $@ $(LDFLAGS) $(LDLIBS)
+		
+$(LIB_PATH): $(LIB_OBJECTS)
+	ar rcs $@ $^
+
+$(OBJ_DIR)/%.o: %.$(SRC_EXT)
+	$(CXX) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 .PHONY: clean
+clean:
+	$(RM) $(APP_PATH) $(LIB_PATH)
+	find $(OBJ_DIR) -name '*.o' -exec $(RM) '{}' \;
+	find $(OBJ_DIR) -name '*.d' -exec $(RM) '{}' \;
 
-clean: 
-	rm -rf $(GEO)/*.o $(GEO)/*.d $(LIBG)/*.o $(LIBG)/*.d bin/*.exe
