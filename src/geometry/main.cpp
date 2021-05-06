@@ -1,5 +1,10 @@
 #include "check.h"
 #include "computation.h"
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+using namespace std;
+
 int main()
 {
 	int left_bracket, right_bracket, first_space, comma, CircleTrue, Condition_is_met = 1;

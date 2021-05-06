@@ -1,4 +1,7 @@
 #include "computation.h"
+#include <iostream>
+#include <stdlib.h>
+#include <string>
 
 double computation_area(int comma, int right_bracket, string entered_data)
 {

@@ -1,4 +1,6 @@
 #include "check.h"
+#include <iostream>
+#include <string>
 
 int zero_fault(int left_bracket, int right_bracket)
 {
