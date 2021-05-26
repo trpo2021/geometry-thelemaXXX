@@ -13,14 +13,9 @@ TEST_CASE("Circle")
 {
     SECTION("Errors")
     {
-        int left_bracket, right_bracket, first_space, comma, CircleTrue,
-            Condition_is_met = 1;
-        char numbering[80];
+        int left_bracket, right_bracket, first_space, comma, CircleTrue;
         string entered_data;
-
-        for (int i = 0; i < 80; i++)
-            numbering[i] = ' ';
-        numbering[80] = "circle0 0, 1";
+        char numbering[80] = "circle0 0, 1";
         entered_data.assign(numbering);
         left_bracket = entered_data.find('(');
         right_bracket = entered_data.find(')');
