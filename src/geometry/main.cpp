@@ -13,7 +13,7 @@ int main()
 
     for (int c = 0; c < 2; c++) {
         int left_bracket, right_bracket, first_space, comma, CircleTrue,
-            Condition_is_met = 1, count = 0;
+            Condition_is_met = 1;
         char numbering[80];
         string entered_data;
 
