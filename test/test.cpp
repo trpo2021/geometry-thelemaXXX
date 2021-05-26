@@ -119,7 +119,7 @@ TEST_CASE("Crossing")
         CHECK(first(left_bracket, comma, entered_data) == 1);
         
         char numbering13[80] = "circle(0 1, 0)";
-        entered_data.assign(numbering12);
+        entered_data.assign(numbering13);
         left_bracket = entered_data.find('(');
         comma = entered_data.find(',');
         strcpy(numbering13, "circle(0 1, 0)");
