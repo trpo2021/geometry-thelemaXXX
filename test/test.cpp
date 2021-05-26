@@ -100,9 +100,9 @@ TEST_CASE("Circle")
 
 TEST_CASE("Calculate")
 {
-	SECTION("Computation")
+	SECTION("Computation_area")
     {
-    	double PI = 3.14;
+    	double q = 3.14;
         int right_bracket, comma;
         string entered_data;
         char numbering0[80] = "circle(0 0, 1)";
@@ -111,9 +111,20 @@ TEST_CASE("Calculate")
         comma = entered_data.find(',');
         
         strcpy(numbering0, "circle(0 0, 1)");
-        CHECK(computation_area(comma, right_bracket, entered_data == PI);
+        CHECK(computation_area(comma, right_bracket, entered_data == q);
+    }
+    
+    SECTION("Computation_perimeter")
+	{
+		double q = 3.14;
+        int right_bracket, comma;
+        string entered_data;
+        char numbering0[80] = "circle(0 0, 1)";
+        entered_data.assign(numbering0);
+        right_bracket = entered_data.find(')');
+        comma = entered_data.find(',');
         
         strcpy(numbering0, "circle(0 0, 1)");
-        CHECK(computation_perimeter(comma, right_bracket, entered_data == 2*PI);
-    }
+        CHECK(computation_perimeter(comma, right_bracket, entered_data == 2*q);
+	}
 }
