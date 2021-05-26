@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
 int zero_fault(int left_bracket, int right_bracket);

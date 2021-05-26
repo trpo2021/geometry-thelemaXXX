@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
 #include <iostream>
+#include <string>
 using namespace std;
 
 double computation_perimeter(int comma, int right_bracket, string entered_data);
