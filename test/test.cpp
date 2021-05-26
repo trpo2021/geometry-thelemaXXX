@@ -31,7 +31,7 @@ TEST_CASE("Circle")
             * entered_data.compare(0, left_bracket, "CIRCLE");
 
         comma = entered_data.find(',');
-        
+
         strcpy(numbering, "circle0 0, 1)");
         CHECK(zero_fault(left_bracket, right_bracket) != 1);
     }
