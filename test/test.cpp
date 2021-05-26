@@ -96,8 +96,11 @@ TEST_CASE("Circle")
         strcpy(numbering10, "circle(0 0, 1)4214");
         CHECK(tenth_fault(right_bracket, numbering10) != 1);
     }
-    
-    SECTION("Computation")
+}
+
+TEST_CASE("Calculate")
+{
+	SECTION("Computation")
     {
     	double PI = 3.141592653589793;
         int right_bracket, comma;
