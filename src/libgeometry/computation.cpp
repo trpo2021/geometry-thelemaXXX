@@ -6,7 +6,7 @@ using namespace std;
 
 double computation_area(int comma, int right_bracket, string entered_data) {
     int count = 0;
-    double area = 0, PI = 3.141592653589793;
+    double area = 0, PI = 3.14;
     char radius[80];
 
     for (int i = comma + 1; i < right_bracket; i++) {
@@ -28,7 +28,7 @@ double computation_area(int comma, int right_bracket, string entered_data) {
 double
 computation_perimeter(int comma, int right_bracket, string entered_data) {
     int count = 0;
-    double perimeter = 0, PI = 3.141592653589793;
+    double perimeter = 0, PI = 3.14;
     char radius[80];
 
     for (int i = comma + 1; i < right_bracket; i++) {

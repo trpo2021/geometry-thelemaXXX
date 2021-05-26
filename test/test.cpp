@@ -102,7 +102,7 @@ TEST_CASE("Calculate")
 {
 	SECTION("Computation")
     {
-    	double PI = 3.141592653589793;
+    	double PI = 3.14;
         int right_bracket, comma;
         string entered_data;
         char numbering0[80] = "circle(0 0, 1)";
