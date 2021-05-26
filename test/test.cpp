@@ -98,33 +98,31 @@ TEST_CASE("Circle")
     }
 }
 
-TEST_CASE("Calculate")
+TEST_CASE("Crossing")
 {
-	SECTION("Computation_area")
+	SECTION("radius")
     {
-    	double q = 3.14;
         int right_bracket, comma;
         string entered_data;
-        char numbering0[80] = "circle(0 0, 1)";
-        entered_data.assign(numbering0);
+        char numbering11[80] = "circle(0 0, 1)";
+        entered_data.assign(numbering11);
         right_bracket = entered_data.find(')');
         comma = entered_data.find(',');
-        
-        strcpy(numbering0, "circle(0 0, 1)");
-        CHECK(computation_area(comma, right_bracket, entered_data == q);
-    }
-    
-    SECTION("Computation_perimeter")
-	{
-		double q = 3.14;
-        int right_bracket, comma;
-        string entered_data;
-        char numbering0[80] = "circle(0 0, 1)";
-        entered_data.assign(numbering0);
-        right_bracket = entered_data.find(')');
+        strcpy(numbering11, "circle(0 0, 1)");
+        CHECK(radius (comma, right_bracket, entered_data) == 1);
+   
+        char numbering12[80] = "circle(1 0, 0)";
+        entered_data.assign(numbering12);
+        left_bracket = entered_data.find('(');
         comma = entered_data.find(',');
+        strcpy(numbering12, "circle(0 0, 1)");
+        CHECK(first(left_bracket, comma, entered_data) == 1);
         
-        strcpy(numbering0, "circle(0 0, 1)");
-        CHECK(computation_perimeter(comma, right_bracket, entered_data == 2*q);
+        char numbering13[80] = "circle(0 1, 0)";
+        entered_data.assign(numbering12);
+        left_bracket = entered_data.find('(');
+        comma = entered_data.find(',');
+        strcpy(numbering13, "circle(0 1, 0)");
+        CHECK(second(left_bracket, comma, entered_data) == 1);
 	}
 }
