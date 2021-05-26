@@ -13,7 +13,7 @@ TEST_CASE("Circle")
 {
     SECTION("Errors")
     {
-        int left_bracket, right_bracket, comma;
+        int left_bracket, right_bracket, comma, CircleTrue, first_space;
         string entered_data;
         char numbering0[80] = "circle0 0, 1";
         entered_data.assign(numbering0);
