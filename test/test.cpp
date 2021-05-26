@@ -15,80 +15,80 @@ TEST_CASE("Circle")
     {
         int left_bracket, right_bracket, comma;
         string entered_data;
-        *char numbering[80] = "circle0 0, 1";
-        entered_data.assign(numbering);
+        char numbering0[80] = "circle0 0, 1";
+        entered_data.assign(numbering0);
         left_bracket = entered_data.find('(');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle0 0, 1)");
+        strcpy(numbering0, "circle0 0, 1)");
         CHECK(zero_fault(left_bracket, right_bracket) != 1);
  
-        *numbering[80] = "circl(0 0, 1)";
-        entered_data.assign(numbering);
+        char numbering1[80] = "circl(0 0, 1)";
+        entered_data.assign(numbering1);
         left_bracket = entered_data.find('(');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circl(0 0, 1)");
+        strcpy(numbering1, "circl(0 0, 1)");
         CHECK(first_fault(left_bracket, right_bracket) != 1);
 
-        *numbering[80] = "circle(0 0 1)";
-        entered_data.assign(numbering);
+        char numbering2[80] = "circle(0 0 1)";
+        entered_data.assign(numbering2);
         comma = entered_data.find(',');
-        strcpy(numbering, "circle(0 0 1)");
+        strcpy(numbering2, "circle(0 0 1)");
         CHECK(second_fault(comma) != 1);
         
-        *numbering[80] = "circle(1.1 0, 1)";
-        entered_data.assign(numbering);
+        char numbering3[80] = "circle(1.1 0, 1)";
+        entered_data.assign(numbering3);
         comma = entered_data.find(',');
         left_bracket = entered_data.find('(');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(1.1 0, 1)");
+        strcpy(numbering3, "circle(1.1 0, 1)");
         CHECK(third_fault(left_bracket, comma, entered_data) != 1);
         
-        *numbering[80] = "circle(0 +0, 1)";
-        entered_data.assign(numbering);
+        char numbering4[80] = "circle(0 +0, 1)";
+        entered_data.assign(numbering4);
         comma = entered_data.find(',');
         left_bracket = entered_data.find('(');
-        strcpy(numbering, "circle(0 +0, 1)");
+        strcpy(numbering4, "circle(0 +0, 1)");
         CHECK(fourth_fault(left_bracket, comma, entered_data) != 1);
         
-        *numbering[80] = "circle(0, 1)";
-        entered_data.assign(numbering);
+        char numbering5[80] = "circle(0, 1)";
+        entered_data.assign(numbering5);
         comma = entered_data.find(',');
         left_bracket = entered_data.find('(');
-        strcpy(numbering, "circle(0, 1)");
+        strcpy(numbering5, "circle(0, 1)");
         CHECK(fifth_fault(left_bracket, comma, entered_data) != 1);
         
-        *numbering[80] = "circle(0 0, )";
-        entered_data.assign(numbering);
+        char numbering6[80] = "circle(0 0, )";
+        entered_data.assign(numbering6);
         comma = entered_data.find(',');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(0 0, )");
+        strcpy(numbering6, "circle(0 0, )");
         CHECK(sixth_fault(comma, right_bracket, entered_data) != 1);
         
-        *numbering[80] = "circle(0 0, -1)";
-        entered_data.assign(numbering);
+        char numbering7[80] = "circle(0 0, -1)";
+        entered_data.assign(numbering7);
         comma = entered_data.find(',');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(0 0, -1)");
+        strcpy(numbering7, "circle(0 0, -1)");
         CHECK(seventh_fault(comma, right_bracket, entered_data) != 1);
         
-        *numbering[80] = "circle(0 0, +1)";
-        entered_data.assign(numbering);
+        char numbering8[80] = "circle(0 0, +1)";
+        entered_data.assign(numbering8);
         comma = entered_data.find(',');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(0 0, +1)");
+        strcpy(numbering8, "circle(0 0, +1)");
         CHECK(eighth_fault(comma, right_bracket, entered_data) != 1);
         
-        *numbering[80] = "circle(0 0,, 1)";
-        entered_data.assign(numbering);
+        char numbering9[80] = "circle(0 0,, 1)";
+        entered_data.assign(numbering9);
         left_bracket = entered_data.find('(');
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(0 0,, 1)");
+        strcpy(numbering9, "circle(0 0,, 1)");
         CHECK(ninth_fault(left_bracket, right_bracket, entered_data) != 1);
         
-        *numbering[80] = "circle(0 0, 1)4214";
-        entered_data.assign(numbering);
+        char numbering10[80] = "circle(0 0, 1)4214";
+        entered_data.assign(numbering10);
         right_bracket = entered_data.find(')');
-        strcpy(numbering, "circle(0 0, 1)4214");
-        CHECK(tenth_fault(right_bracket, numbering) != 1);
+        strcpy(numbering10, "circle(0 0, 1)4214");
+        CHECK(tenth_fault(right_bracket, numbering10) != 1);
     }
 }
