@@ -102,7 +102,7 @@ TEST_CASE("Crossing")
 {
 	SECTION("radius")
     {
-        int right_bracket, comma;
+        int right_bracket, comma, left_bracket;
         string entered_data;
         char numbering11[80] = "circle(0 0, 1)";
         entered_data.assign(numbering11);
