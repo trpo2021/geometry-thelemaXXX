@@ -11,7 +11,7 @@ using namespace std;
 
 TEST_CASE("Circle")
 {
-    SECTION("Errors")
+    SECTION("Check")
     {
         int left_bracket, right_bracket, comma, CircleTrue, first_space;
         string entered_data;
@@ -95,5 +95,22 @@ TEST_CASE("Circle")
         right_bracket = entered_data.find(')');
         strcpy(numbering10, "circle(0 0, 1)4214");
         CHECK(tenth_fault(right_bracket, numbering10) != 1);
+    }
+    
+    SECTION("Computation")
+    {
+    	double PI = 3.141592653589793;
+        int right_bracket, comma;
+        string entered_data;
+        char numbering0[80] = "circle(0 0, 1)";
+        entered_data.assign(numbering0);
+        right_bracket = entered_data.find(')');
+        comma = entered_data.find(',');
+        
+        strcpy(numbering0, "circle(0 0, 1)");
+        CHECK(computation_area(comma, right_bracket, entered_data == PI);
+        
+        strcpy(numbering0, "circle(0 0, 1)");
+        CHECK(computation_perimeter(comma, right_bracket, entered_data == 2*PI);
     }
 }
