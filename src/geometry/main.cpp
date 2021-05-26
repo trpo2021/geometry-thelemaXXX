@@ -87,10 +87,8 @@ int main()
             cout << "Error at column 10: extra characters" << endl;
         }
 
-        if (Condition_is_met == 1) {
+        if (Condition_is_met == 1)
             cout << entered_data << endl;
-            count = 1;
-        }
 
         if (Condition_is_met == 1)
             cout << "perimeter = "
