@@ -142,7 +142,7 @@ TEST_CASE("Computation")
    
         char numbering15[80] = "circle(0 0, 1)";
         entered_data.assign(numbering15);
-        left_bracket = entered_data.find('(');
+        right_bracket = entered_data.find(')');
         comma = entered_data.find(',');
         strcpy(numbering14, "circle(0 0, 1)");
         CHECK(computation_perimeter(comma, right_bracket, entered_data) == 6.28);
