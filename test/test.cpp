@@ -131,7 +131,7 @@ TEST_CASE("Computation")
 {
 	SECTION("S and P")
     {
-        int right_bracket, comma, left_bracket;
+        int right_bracket, comma;
         string entered_data;
         char numbering14[80] = "circle(0 0, 1)";
         entered_data.assign(numbering14);
