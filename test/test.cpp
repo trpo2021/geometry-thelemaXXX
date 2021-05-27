@@ -138,13 +138,13 @@ TEST_CASE("Computation")
         right_bracket = entered_data.find(')');
         comma = entered_data.find(',');
         strcpy(numbering14, "circle(0 0, 1)");
-        CHECK(computation_area(int comma, int right_bracket, string entered_data) == 3.14);
+        CHECK(computation_area(comma, right_bracket, entered_data) == 3.14);
    
         char numbering15[80] = "circle(0 0, 1)";
         entered_data.assign(numbering15);
         left_bracket = entered_data.find('(');
         comma = entered_data.find(',');
         strcpy(numbering14, "circle(0 0, 1)");
-        CHECK(computation_perimeter(int comma, int right_bracket, string entered_data) == 6.28);
+        CHECK(computation_perimeter(comma, right_bracket, entered_data) == 6.28);
 	}
 }
