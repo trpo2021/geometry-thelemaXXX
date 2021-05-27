@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    double radius_sum = 0, X = 0, Y = 0, Q = 0;
+    float radius_sum = 0, X = 0, Y = 0, Q = 0, R1 = 0, R2 = 0;
 
     for (int c = 0; c < 2; c++) {
         int left_bracket, right_bracket, first_space, comma, CircleTrue,
@@ -100,8 +100,6 @@ int main()
         if (Condition_is_met == 1) {
             radius_sum += radius(comma, right_bracket, entered_data);
         }
-
-        double R1, R2;
 
         if (Condition_is_met == 1 && c == 0) {
             R1 += radius(comma, right_bracket, entered_data);

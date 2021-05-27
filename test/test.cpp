@@ -9,9 +9,9 @@
 #include <cmath>
 using namespace std;
 
-TEST_CASE("Circle")
+TEST_CASE("Check")
 {
-    SECTION("Check")
+    SECTION("Errors")
     {
         int left_bracket, right_bracket, comma, CircleTrue, first_space;
         string entered_data;
@@ -100,7 +100,7 @@ TEST_CASE("Circle")
 
 TEST_CASE("Crossing")
 {
-	SECTION("radius")
+	SECTION("Variables")
     {
         int right_bracket, comma, left_bracket;
         string entered_data;
@@ -124,5 +124,27 @@ TEST_CASE("Crossing")
         comma = entered_data.find(',');
         strcpy(numbering13, "circle(0 1, 0)");
         CHECK(second(left_bracket, comma, entered_data) == 1);
+	}
+}
+
+TEST_CASE("Computation")
+{
+	SECTION("S and P")
+    {
+        int right_bracket, comma, left_bracket;
+        string entered_data;
+        char numbering14[80] = "circle(0 0, 1)";
+        entered_data.assign(numbering14);
+        right_bracket = entered_data.find(')');
+        comma = entered_data.find(',');
+        strcpy(numbering14, "circle(0 0, 1)");
+        CHECK(computation_area(int comma, int right_bracket, string entered_data) == 3.14);
+   
+        char numbering15[80] = "circle(0 0, 1)";
+        entered_data.assign(numbering15);
+        left_bracket = entered_data.find('(');
+        comma = entered_data.find(',');
+        strcpy(numbering14, "circle(0 0, 1)");
+        CHECK(computation_perimeter(int comma, int right_bracket, string entered_data) == 6.28);
 	}
 }
