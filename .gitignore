@@ -1,0 +1,8 @@
+#ignore executable and objectiv files 
+*.o
+*.exe
+*.a
+*.d
+*.elf
+bin/geometry
+src/geometry/#main.cpp#
