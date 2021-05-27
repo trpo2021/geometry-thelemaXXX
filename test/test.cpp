@@ -132,19 +132,20 @@ TEST_CASE("Computation")
 	SECTION("S and P")
     {
         int right_bracket, comma;
+        float PI = 3.14, PI2 = 6.28;
         string entered_data;
         char numbering14[80] = "circle(0 0, 1)";
         entered_data.assign(numbering14);
         right_bracket = entered_data.find(')');
         comma = entered_data.find(',');
         strcpy(numbering14, "circle(0 0, 1)");
-        CHECK(computation_area(comma, right_bracket, entered_data) == 3.14);
+        CHECK(computation_area(comma, right_bracket, entered_data) == PI);
    
         char numbering15[80] = "circle(0 0, 1)";
         entered_data.assign(numbering15);
         right_bracket = entered_data.find(')');
         comma = entered_data.find(',');
         strcpy(numbering14, "circle(0 0, 1)");
-        CHECK(computation_perimeter(comma, right_bracket, entered_data) == 6.28);
+        CHECK(computation_perimeter(comma, right_bracket, entered_data) == PI2);
 	}
 }
